@@ -53,7 +53,7 @@ class Eggpaths(object):
             # egg paths are of the form Name-Version-PyVersion.
             # So, check that we are starting with the right name, and finishing in a -
             # Should give the name of the egg that was installed, so we can match against it
-            self.eggs_of_interest[egg] = [entry_names[x] for x in entry_names.keys() if x.lower().startswith(egg.lower() + '-')][0]
+            self.eggs_of_interest[egg] = [entry_names[x] for x in entry_names.keys() if (x.lower().startswith(egg.lower() + '-') or (x.lower() == egg.lower()))][0]
 
 
         # now we've done that, set the buildout options we were after
