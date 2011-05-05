@@ -6,7 +6,7 @@ setup(
     name = 'isotoma.recipe.eggpaths',
     version = version,
     description = "Get the paths to certain eggs that have been installed, so they can be referenced in other buildout sections",
-    long_description = open("README.rst").read() + "\n" + \ 
+    long_description = open("README.rst").read() + "\n" + \
                        open("CHANGES.txt").read(),
     classifiers = [ 
         "Framework :: Buildout",
