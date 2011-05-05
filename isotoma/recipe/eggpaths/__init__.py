@@ -26,6 +26,9 @@ class Eggpaths(object):
         self.name = name
         self.options = options
 
+    def install(self):
+        """ Write out the paths that we've found to a handy text file """
+        
         # get the list of eggs that was specified in the buildout part
         eggs = [x.strip() for x in self.options['eggs'].split('\n')]
 
@@ -59,9 +62,6 @@ class Eggpaths(object):
         # now we've done that, set the buildout options we were after
         for key, value in self.eggs_of_interest.iteritems():
             self.options.setdefault(key, value)
-
-    def install(self):
-        """ Write out the paths that we've found to a handy text file """
 
         # get the directory to put the file in
         outputdir = os.path.join(self.buildout['buildout']['parts-directory'], self.name)
