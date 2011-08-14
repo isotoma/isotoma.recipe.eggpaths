@@ -17,6 +17,7 @@ import sys
 import logging
 
 from zc.buildout import easy_install
+from pkg_resources import to_filename
 
 class Eggpaths(object):
     
@@ -48,7 +49,9 @@ class Eggpaths(object):
         for k,v in versions_section.iteritems():
             egg_directory = self.buildout['buildout']['eggs-directory']
             python_version = '.'.join([str(x) for x in sys.version_info[0:2]])
-            
+            k = to_filename(k)
+            v = to_filename(v)
+
             path_to_egg = os.path.join(egg_directory, k + '-' + v + '-py' + python_version +'.egg/')
             
             self.options.setdefault(k, path_to_egg)
