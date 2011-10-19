@@ -29,6 +29,7 @@ setup(
     install_requires = [ 
         'setuptools',
         'zc.buildout',
+        'zc.recipe.egg',
     ],  
     entry_points = { 
         "zc.buildout": [
