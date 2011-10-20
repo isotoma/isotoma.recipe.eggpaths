@@ -105,6 +105,7 @@ parser.add_option("-v", "--version", dest="version",
 parser.add_option("-d", "--distribute",
                    action="store_true", dest="use_distribute", default=True,
                    help="Use Distribute rather than Setuptools.")
+parser.add_option("--distribute-version", dest="distribute_version", default="0.6.21")
 parser.add_option("--setup-source", action="callback", dest="setup_source",
                   callback=normalize_to_url, nargs=1, type="string",
                   help=("Specify a URL or file location for the setup file. "
@@ -169,6 +170,8 @@ except ImportError:
         setup_args['download_base'] = options.download_base
     if options.use_distribute:
         setup_args['no_fake'] = True
+    if options.distribute_version:
+        setup_args['version'] = options.distribute_version
     ez['use_setuptools'](**setup_args)
     if 'pkg_resources' in sys.modules:
         reload(sys.modules['pkg_resources'])
