@@ -45,29 +45,6 @@ class Eggpaths(object):
                 raise UserError('Cannot locate the egg path for %s' % egg_name)
 
     def install(self):
-        """ Write out the paths that we've found to a handy text file """
-
-        # get the directory to put the file in
-        outputdir = os.path.join(
-            self.buildout['buildout']['parts-directory'],
-            self.name
-        )
-
-        # create this directory
-        if not os.path.exists(outputdir):
-            os.mkdir(outputdir)
-
-        # write out the file
-        out_file = open(os.path.join(outputdir, "eggpaths.txt"), 'w')
-
-        for key, value in self.options.iteritems():
-            out_file.write(key + ': ' + value + '\n')
-
-        # tidy up
-        out_file.flush()
-        out_file.close()
-
-        # buildout expects paths that have been altered
-        return outputdir
+        return ()
 
     update = install
