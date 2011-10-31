@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.1.1dev'
+version = '0.1.1'
 
 setup(
     name = 'isotoma.recipe.eggpaths',
@@ -29,6 +29,7 @@ setup(
     install_requires = [ 
         'setuptools',
         'zc.buildout',
+        'zc.recipe.egg',
     ],  
     entry_points = { 
         "zc.buildout": [
